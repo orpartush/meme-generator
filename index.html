@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meme Generator</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body onload="onInit()">
   <h1>Meme Generator</h1>
 
@@ -14,7 +16,16 @@
       <canvas width="500" height="500"></canvas>
     </section>
     <section class="control-board">
-      <input type="text" onkeypress="onTxtChange(this)" placeholder="Enter your text here">
+      <!-- text input -->
+      <input type="text" onkeyup="onTxtChange(this)" placeholder="Enter your text here">
+      <!-- increase/decrease font -->
+      <button class="increase-btn" onclick="onIncreaseFont()">+</button>
+      <button class="decrease-btn" onclick="onDecreaseFont()">-</button>
+      <!-- move line up/down -->
+      <button class="line-up-btn" onclick="onMoveLineUp()">UP</button>
+      <button class="line-down-btn" onclick="onMoveLineDown()">DOWN</button>
+      <!-- change line -->
+      <button class="change-line-btn" onclick="onChangeLine()">CHANGE LINE</button>
     </section>
   </main>
 
@@ -22,8 +33,9 @@
     <img src="img/1.jpg" alt="trump" data-id="1" title="Angry Trump" onclick="onChooseImg(this)">
     <img src="img/2.jpg" alt="puppies" data-id="2" title="Puppies" onclick="onChooseImg(this)">
   </section>
-  
+
   <script src="services/meme-service.js"></script>
   <script src="controllers/meme-controller.js"></script>
 </body>
+
 </html>

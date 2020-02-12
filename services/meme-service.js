@@ -21,13 +21,24 @@ var gImgs = [
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
-  lines: [{
-    //from the user, this is the default
-    txt: 'I never eat Falafel', 
-    size: 20,
-    align: 'left',
-    color: 'red'
-  }]
+  lines: [
+      {
+      txt: 'I never eat Falafel', 
+      size: 50,
+      align: 'left',
+      coords: { x: 250, y: 50 },
+      color: 'white',
+      strokeColor: 'black',
+    },
+    {
+      txt: 'Falafel is Awesome', 
+      size: 60,
+      align: 'left',
+      coords: { x: 250, y: 110 },
+      color: 'red',
+      strokeColor: 'black',
+    }
+  ]
 }
 
 function getImgUrl(imgId) {
@@ -35,12 +46,16 @@ function getImgUrl(imgId) {
   return desiredImg.url;
 }
 
+function getMemeLines() {
+  return gMeme.lines.map(line => line);
+}
+
 function getMemeTxt() {
-  return gMeme.lines[0].txt;
+  let memeLines = gMeme.lines.map(line => line.txt);
+  console.log(memeLines)
+  return memeLines.join('\n')
 }
 
 function updateMemeTxt(txt) {
-  let lineIdx = gMeme.lines.length - 1;
-  gMeme.lines[lineIdx].txt = txt;
-  console.log(gMeme.lines)
+  gCurrLine.txt = txt;
 }
