@@ -6,8 +6,22 @@
   <title>Meme Generator</title>
   <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
+<body onload="onInit()">
   <h1>Meme Generator</h1>
+
+  <main class="generator">
+    <section class="canvas-container">
+      <canvas width="500" height="500"></canvas>
+    </section>
+    <section class="control-board">
+      <input type="text" onkeypress="onTxtChange(this)" placeholder="Enter your text here">
+    </section>
+  </main>
+
+  <section class="gallery">
+    <img src="img/1.jpg" alt="trump" data-id="1" title="Angry Trump" onclick="onChooseImg(this)">
+    <img src="img/2.jpg" alt="puppies" data-id="2" title="Puppies" onclick="onChooseImg(this)">
+  </section>
   
   <script src="services/meme-service.js"></script>
   <script src="controllers/meme-controller.js"></script>

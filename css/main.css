@@ -1,3 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
+  margin: 0;
+  padding: 0;
   background-color: skyblue;
+  text-align: center;
+}
+
+canvas {
+  border: 2px solid black;
+}
+
+.gallery {
+  margin: 20px;
+}
+
+.gallery>img {
+  margin: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.gallery>img:hover {
+  cursor: pointer;
 }
