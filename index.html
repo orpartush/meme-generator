@@ -9,30 +9,58 @@
 </head>
 
 <body onload="onInit()">
-  <h1>Meme Generator</h1>
+  <nav class="nav-container flex space-between align-items">
+    <header class="title">Memegen</header>
+    <ul class="nav flex">
+      <!-- im here -->
+      <li><a href="#" onclick="onGalleryClick()">Gallery</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+  </nav>
 
-  <main class="generator">
+  <section class="tags-container flex space-between align-items">
+    <input type="text" class="tags-search" placeholder="Enter search keyword">
+    <ul class="tags-list flex">
+      <li><a class="tag-item" href="#">funny</a></li>
+      <li><a class="tag-item" href="#">comics</a></li>
+      <li><a class="tag-item" href="#">dogs</a></li>
+      <li><a class="tag-item" href="#">drinks</a></li>
+    </ul>
+  </section>
+
+  <main class="generator flex justify-center align-items">
     <section class="canvas-container">
       <canvas width="500" height="500"></canvas>
     </section>
     <section class="control-board">
-      <!-- text input -->
-      <input type="text" onkeyup="onTxtChange(this)" placeholder="Enter your text here">
-      <!-- increase/decrease font -->
+      <input type="text" onkeyup="onTxtChange(this)" onfocus="this.value=''" placeholder="Enter your text here">
+      <button class="add-line-btn" onclick="onAddLine()">ADD LINE</button>
       <button class="increase-btn" onclick="onIncreaseFont()">+</button>
       <button class="decrease-btn" onclick="onDecreaseFont()">-</button>
-      <!-- move line up/down -->
       <button class="line-up-btn" onclick="onMoveLineUp()">UP</button>
       <button class="line-down-btn" onclick="onMoveLineDown()">DOWN</button>
-      <!-- change line -->
       <button class="change-line-btn" onclick="onChangeLine()">CHANGE LINE</button>
     </section>
   </main>
 
-  <section class="gallery">
-    <img src="img/1.jpg" alt="trump" data-id="1" title="Angry Trump" onclick="onChooseImg(this)">
-    <img src="img/2.jpg" alt="puppies" data-id="2" title="Puppies" onclick="onChooseImg(this)">
+  <section class="gallery-container">
+    <img src="img/1.jpg" data-id="1" onclick="onChooseImg(this)">
   </section>
+
+  <section class="about-container flex justify-center align-items">
+    <img src="img/1.jpg" alt="">
+    <div class="about-content-container">
+      <h2 class="about-title">Donald Trump</h2>
+      <p class="about-content">
+        is a fictional character, one of the six main characters who appears on the American sitcom Friends
+      </p>
+    </div>
+  </section>
+
+  <footer class="flex justify-center align-items flex-column">
+    <p class="footer-title">Memegen</p>
+    <p class="crights">all rights reserved 2019</p>
+  </footer>
 
   <script src="services/meme-service.js"></script>
   <script src="controllers/meme-controller.js"></script>

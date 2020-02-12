@@ -6,12 +6,15 @@ var gMemeLines;
 var gCurrLine;
 var gCurrLineIdx = 0;
 
+
 function onInit() {
+  createImgs();
   gCanvas = document.querySelector('canvas');
   gCtx = gCanvas.getContext('2d');
   gMemeLines = getMemeLines();
   gCurrLine = gMemeLines[gCurrLineIdx];
   renderCanvas();
+  renderImgs();
 }
 
 function renderCanvas() {
@@ -22,6 +25,15 @@ function renderCanvas() {
     let memeLines = getMemeLines();
     memeLines.forEach(line => drawText(line));
   }
+}
+
+function renderImgs() {
+  let elGallery = document.querySelector('.gallery-container');
+  let strHtml = '';
+  gImgs.map(img => {
+    strHtml += `<img src="${img.url}" data-id="${img.id}" onclick="onChooseImg(this)"></img>`
+  });
+  elGallery.innerHTML = strHtml;
 }
 
 function drawText(line) {
@@ -41,9 +53,14 @@ function onTxtChange(elTxt) {
   renderCanvas();
 }
 
+function onAddLine() {
+  createLine();
+  renderCanvas();
+}
+
 function onChooseImg(elImg) {
   gMeme.selectedImgId = +elImg.dataset.id;
-  renderCanvas()
+  renderCanvas();
 }
 
 function onIncreaseFont() {
@@ -67,7 +84,8 @@ function onMoveLineDown() {
 }
 
 function onChangeLine() {
-  let linesCount = getMemeLines().length;
-  (gCurrLineIdx === linesCount - 1) ? gCurrLineIdx = 0 : gCurrLineIdx++;
-  gCurrLine = gMemeLines[gCurrLineIdx];
+  // let linesCount = getMemeLines().length;
+  getCurrLine();
+  // (gCurrLineIdx === linesCount - 1) ? gCurrLineIdx = 0 : gCurrLineIdx++;
+  // gCurrLine = gMemeLines[gCurrLineIdx];
 }
