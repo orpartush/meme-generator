@@ -31,8 +31,14 @@ a {
   color: #ffffff;
 }
 
-canvas {
-  border: 2px solid black;
+button>img {
+  width: 40px;
+  height: 40px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
 }
 
 /* Navbar */
@@ -47,6 +53,10 @@ canvas {
   font-family: russo, sans-serif;
   padding-inline-start: 50px;
   font-size: 1.5rem;
+}
+
+.title:hover {
+  cursor: pointer;
 }
 
 .nav {
@@ -103,8 +113,73 @@ canvas {
 }
 
 /* Generator */
+.generator-container>* {
+  padding: 20px;
+}
+
 .generator>* {
   padding: 20px;
+}
+
+.control-board-container>a {
+  color: #364f6b;
+}
+
+.control-board-container>a:hover {
+  text-decoration: underline;
+}
+
+.control-board-container>input:first-child {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-family: exo, sans-serif;
+  color: #364f6b;
+  margin-block-end: 10px;
+}
+
+.add-remove-change {
+  margin-block-end: 30px;
+}
+
+.add-remove-change>* {
+  margin: 10px;
+}
+
+.font-related>* {
+  margin: 10px;
+}
+
+.fonts-list-color-container>* {
+  margin: 10px;
+}
+
+.fonts-list-color-container {
+  margin-block-end: 30px;
+}
+
+.fonts-list {
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  font-family: exo, sans-serif;
+}
+
+.fonts-list:hover {
+  cursor: pointer;
+}
+
+.change-color-btn {
+  background: url(../icons/paint-board-and-brush.png) left no-repeat;
+  padding: 20px;
+  background-size: 40px;
+  border: none;
+
+}
+
+.change-color-btn:hover {
+  cursor: pointer;
 }
 
 /* About */
@@ -171,6 +246,10 @@ footer>* {
   display: flex;
 }
 
+.justify-start {
+  justify-content: start;
+}
+
 .flex-column {
   flex-direction: column;
 }
@@ -185,4 +264,53 @@ footer>* {
 
 .align-items {
   align-items: center;
+}
+
+/* Media Queary */
+@media only screen and (max-width: 940px) {
+  .generator {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .canvas-container {
+    margin-block-end: 10px;
+  }
+
+  .tags-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tags-container>* {
+    margin: 0;
+  }
+  
+  .tags-container>input {
+    margin-inline-start: 0;
+  }
+
+  .tags_list {
+    justify-content: space-around;
+  }
+}
+
+@media only screen and (max-width: 930px) {
+  .gallery-container>img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-container>img {
+    margin-block-end: 20px;
+  }
+
+  .about-content-container>* {
+    text-align: center;
+  }
 }

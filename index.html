@@ -5,57 +5,101 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meme Generator</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
   <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body onload="onInit()">
   <nav class="nav-container flex space-between align-items">
-    <header class="title">Memegen</header>
+    <header class="title" onclick="onGalleryClick()">Memegen</header>
     <ul class="nav flex">
-      <!-- im here -->
-      <li><a href="#" onclick="onGalleryClick()">Gallery</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="#gallery" onclick="onGalleryClick()">Gallery</a></li>
+      <li><a href="#about" onclick="onGalleryClick()">About</a></li>
     </ul>
   </nav>
 
-  <section class="tags-container flex space-between align-items">
-    <input type="text" class="tags-search" placeholder="Enter search keyword">
-    <ul class="tags-list flex">
-      <li><a class="tag-item" href="#">funny</a></li>
-      <li><a class="tag-item" href="#">comics</a></li>
-      <li><a class="tag-item" href="#">dogs</a></li>
-      <li><a class="tag-item" href="#">drinks</a></li>
-    </ul>
-  </section>
-
-  <main class="generator flex justify-center align-items">
-    <section class="canvas-container">
-      <canvas width="500" height="500"></canvas>
+  <section class="homepage">
+    <section class="tags-container flex space-between align-items">
+      <input type="text" class="tags-search" onkeyup="onSearchfield(this)"placeholder="Enter search keyword">
+      <ul class="tags-list flex">
+        <li><a class="tag-item" href="#">funny</a></li>
+        <li><a class="tag-item" href="#">comics</a></li>
+        <li><a class="tag-item" href="#">dogs</a></li>
+        <li><a class="tag-item" href="#">drinks</a></li>
+      </ul>
     </section>
-    <section class="control-board">
-      <input type="text" onkeyup="onTxtChange(this)" onfocus="this.value=''" placeholder="Enter your text here">
-      <button class="add-line-btn" onclick="onAddLine()">ADD LINE</button>
-      <button class="increase-btn" onclick="onIncreaseFont()">+</button>
-      <button class="decrease-btn" onclick="onDecreaseFont()">-</button>
-      <button class="line-up-btn" onclick="onMoveLineUp()">UP</button>
-      <button class="line-down-btn" onclick="onMoveLineDown()">DOWN</button>
-      <button class="change-line-btn" onclick="onChangeLine()">CHANGE LINE</button>
+
+    <section class="gallery-container" id="gallery"></section>
+
+    <section class="about-container flex justify-center align-items" id="about">
+      <img src="img/1.jpg" alt="">
+      <div class="about-content-container">
+        <h2 class="about-title">Donald Trump</h2>
+        <p class="about-content">
+          is a fictional character, one of the six main characters who appears on the American sitcom Friends
+        </p>
+      </div>
     </section>
-  </main>
-
-  <section class="gallery-container">
-    <img src="img/1.jpg" data-id="1" onclick="onChooseImg(this)">
   </section>
 
-  <section class="about-container flex justify-center align-items">
-    <img src="img/1.jpg" alt="">
-    <div class="about-content-container">
-      <h2 class="about-title">Donald Trump</h2>
-      <p class="about-content">
-        is a fictional character, one of the six main characters who appears on the American sitcom Friends
-      </p>
-    </div>
-  </section>
+  <div hidden class="generator-container">
+    <main class="generator flex justify-center">
+      <section class="canvas-container flex justify-start">
+        <canvas width="400" height="400"></canvas>
+      </section>
+      <section class="control-board-container">
+        <input class="add-txt" type="text" onkeyup="onTxtChange(this)" onfocus="this.value=''" placeholder="Enter your text here">
+        <div class="add-remove-change">
+          <button class="line-up-btn" onclick="onMoveLineUp()">
+            <img src="icons/arrow-up.png" alt="move up" title="Move up">
+          </button>
+          <button class="line-up-btn" onclick="onMoveLineDown()">
+            <img src="icons/arrow-down.png" alt="move down" title="Move down">
+          </button>
+          <button class="change-line-btn" onclick="onChangeLine()">
+            <img src="icons/change-line-arrows.png" alt="change-line" title="Change line">
+          </button>
+          <button class="add-line-btn" onclick="onAddLine()">
+            <img src="icons/add.png" alt="add-line" title="Add line">
+          </button>
+          <button class="delete-line-btn" onclick="onDeleteLine()">
+            <img src="icons/trash.png" alt="delete-line" title="Delete line">
+          </button>
+        </div>
+        <div class="flex flex-column justify-center">
+          <div class="font-related">
+            <button class="increase-btn" onclick="onIncreaseFont()">
+              <img src="icons/increase-font.png" alt="increase-font" title="Increase font size">
+            </button>
+            <button class="decrease-btn" onclick="onDecreaseFont()">
+              <img src="icons/decrease-font.png" alt="decrease-font" title="Decrease font size">
+            </button>
+            <button onclick="onTxtAlign('end')">
+              <img src="icons/align-left.png" alt="align-left" title="Align left">
+            </button>
+            <button onclick="onTxtAlign('center')">
+              <img src="icons/center-text.png" alt="center text" title="Center text">
+            </button>
+            <button onclick="onTxtAlign('start')">
+              <img src="icons/align-right.png" alt="align-right" title="Align right">
+            </button>
+          </div>
+          <div class="fonts-list-color-container">
+            <select class="fonts-list" name="fonts" onchange="onFontChange(this.value)">
+              <option value="Impact">Impact</option>
+              <option value="Arial">Arial</option>
+            </select>
+            <input type="color" class="change-color-btn" name="color" onchange="onChangeColor(this)">
+          </div>
+        </div>
+        <a href="#" onclick="downloadImg(this)" download="my-meme">Download</a>
+      </section>
+    </main>
+  </div>
+
 
   <footer class="flex justify-center align-items flex-column">
     <p class="footer-title">Memegen</p>

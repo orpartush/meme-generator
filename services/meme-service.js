@@ -1,28 +1,22 @@
 'use strict';
 
-
-var gImgs;
-
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
   lines: [{
-    txt: 'I never eat Falafel',
+    txt: 'Enter your text',
+    font: 'Impact',
     size: 50,
-    align: 'left',
+    align: 'center',
     coords: {
-      x: 250,
+      x: 200,
       y: 50
     },
     color: 'white',
     strokeColor: 'black',
   }]
-}
-
-var gKeywords = {
-  'happy': 12,
-  'funny puk': 1
-}
+};
+var gImgs;
 
 function createImgs() {
   gImgs = [
@@ -68,31 +62,60 @@ function getMemeLines() {
 
 function getMemeTxt() {
   let memeLines = gMeme.lines.map(line => line.txt);
-  console.log(memeLines)
   return memeLines.join('\n')
 }
 
-function createLine() {
+function createLine(posX, posY) {
   let newLine = {
     txt: 'Enter your text',
     size: 50,
-    align: 'left',
+    align: 'center',
+    font: 'Impact',
     coords: {
-      x: 250,
-      y: 50
+      x: posX,
+      y: posY
     },
     color: 'white',
     strokeColor: 'black',
+    shadowBlur: 0
   };
   gMeme.lines.push(newLine);
 }
 
+function deleteLine() {
+  let {
+    lines
+  } = gMeme;
+  lines.splice(gCurrLineIdx, 1);
+  if (lines.length === 0) gCurrLine = null;
+  if (lines.length > 0) {
+    gCurrLine = lines[0];
+    gCurrLineIdx = 0;
+    lines[gCurrLineIdx].shadowBlur = 4;
+  }
+}
+
 function updateMemeTxt(txt) {
-  gCurrLine.txt = txt;
+  if (!gCurrLine) return;
+  gMeme.lines[gCurrLineIdx].txt = txt;
 }
 
 function getCurrLine() {
-  gMemeLines = getMemeLines();
-  (gCurrLineIdx + 1 === gMemeLines.length) ? gCurrLine = gMemeLines[0]
-    : gCurrLine = gMemeLines[++gCurrLineIdx];;
+  let {
+    lines
+  } = gMeme;
+  if (gCurrLineIdx + 1 === lines.length) {
+    lines[gCurrLineIdx].shadowBlur = 0;
+    gCurrLineIdx = 0;
+    gCurrLine = lines[gCurrLineIdx]
+    lines[gCurrLineIdx].shadowBlur = 4;
+  } else if (!gCurrLine) {
+    gCurrLineIdx = 0;
+    gCurrLine = lines[gCurrLineIdx]
+  } else {
+    gCurrLineIdx += 1;
+    gCurrLine = lines[gCurrLineIdx];
+    lines[gCurrLineIdx].shadowBlur = 4;
+    lines[gCurrLineIdx - 1].shadowBlur = 0;
+  }
 }
