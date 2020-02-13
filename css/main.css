@@ -314,3 +314,25 @@ footer>* {
     text-align: center;
   }
 }
+
+@media only screen and (max-width: 500px) {
+  .title {
+    padding-inline-start: 5px;
+  }
+
+  .nav {
+    padding-inline-end: 5px;
+  }
+  
+  .nav>li {
+   padding: 5px;
+  }
+
+  .tags-list>li {
+    padding: 5px;
+  }
+
+  .about-content-container {
+    width: 100%;
+  }
+}
