@@ -6,7 +6,7 @@ var gMeme = {
   lines: [
     {
     txt: 'Enter your text',
-    font: 'Impact',
+    font: 'impact',
     size: 40,
     align: 'center',
     coords: {
@@ -18,7 +18,7 @@ var gMeme = {
     },
     {
     txt: 'Enter your text',
-    font: 'Impact',
+    font: 'impact',
     size: 40,
     align: 'center',
     coords: {
