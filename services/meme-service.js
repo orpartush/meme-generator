@@ -3,18 +3,32 @@
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
-  lines: [{
+  lines: [
+    {
     txt: 'Enter your text',
     font: 'Impact',
     size: 40,
     align: 'center',
     coords: {
-      x: 150,
-      y: 50
-    },
+        x: 150,
+        y: 40
+      },
     color: 'white',
     strokeColor: 'black',
-  }]
+    },
+    {
+    txt: 'Enter your text',
+    font: 'Impact',
+    size: 40,
+    align: 'center',
+    coords: {
+        x: 150,
+        y: 290
+      },
+    color: 'white',
+    strokeColor: 'black',
+    }
+  ]
 };
 var gImgs;
 
@@ -38,6 +52,8 @@ function createImgs() {
     createImg(16, 'img/16.jpg', ['politic', 'funny']),
     createImg(17, 'img/17.jpg', ['politic', 'funny']),
     createImg(18, 'img/18.jpg', ['politic', 'funny']),
+    createImg(19, 'img/19.jpg', ['politic', 'funny']),
+    createImg(20, 'img/20.jpg', ['politic', 'funny']),
   ];
 }
 
@@ -68,7 +84,7 @@ function getMemeTxt() {
 function createLine(posX, posY) {
   let newLine = {
     txt: 'Enter your text',
-    size: 50,
+    size: 40,
     align: 'center',
     font: 'Impact',
     coords: {
@@ -101,9 +117,7 @@ function updateMemeTxt(txt) {
 }
 
 function getCurrLine() {
-  let {
-    lines
-  } = gMeme;
+  let { lines } = gMeme;
   if (gCurrLineIdx + 1 === lines.length) {
     lines[gCurrLineIdx].shadowBlur = 0;
     gCurrLineIdx = 0;
@@ -115,7 +129,7 @@ function getCurrLine() {
   } else {
     gCurrLineIdx += 1;
     gCurrLine = lines[gCurrLineIdx];
-    lines[gCurrLineIdx].shadowBlur = 4;
+    lines[gCurrLineIdx].shadowBlur = 3;
     lines[gCurrLineIdx - 1].shadowBlur = 0;
   }
 }

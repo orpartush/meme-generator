@@ -12,6 +12,7 @@ function onInit() {
   gCtx = gCanvas.getContext('2d');
   gCurrLine = gMeme.lines[gCurrLineIdx];
   renderImgs();
+  getCurrLine();
   renderCanvas();
 }
 
@@ -36,8 +37,8 @@ function renderImgs() {
 
 function drawText(line) {
   const { font, strokeColor, color, size, align, txt, coords, shadowBlur } = line;
-  if (shadowBlur === 4) {
-    gCtx.shadowColor = "rgba(255,255, 255, 0.7)";
+  if (shadowBlur) {
+    gCtx.shadowColor = 'rgba(255,255, 255, 0.7)';
     gCtx.shadowOffsetX = 3;
     gCtx.shadowOffsetY = 3;
     gCtx.shadowBlur = shadowBlur;
@@ -80,9 +81,7 @@ function onImgClick(elImg) {
 
 function onAddLine() {
   const { length } = gMeme.lines;
-  if (length > 1) {
-    createLine(200, 200);
-  } else createLine(200, 50);
+  if (length > 1) createLine(150, 150);
   gCurrLine = gMeme.lines[length];
   getCurrLine();
   renderCanvas();
@@ -94,12 +93,12 @@ function onDeleteLine() {
 }
 
 function onIncreaseFont() {
-  gCurrLine.size += 10;
+  gCurrLine.size += 2.5;
   renderCanvas();
 }
 
 function onDecreaseFont() {
-  gCurrLine.size -= 10;
+  gCurrLine.size -= 2.5;
   renderCanvas();
 }
 

@@ -111,6 +111,11 @@ canvas {
   height: 200px;
   border-radius: 15px;
   filter: drop-shadow(3px 1px 1px rgba(54, 79, 107, .3));
+  transition: .3s;
+}
+
+.gallery-container>img:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .gallery-container>img:hover {
