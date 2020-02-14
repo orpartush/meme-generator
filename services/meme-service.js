@@ -91,7 +91,7 @@ function createLine(posX, posY) {
     txt: 'Enter your text',
     size: 40,
     align: 'center',
-    font: 'Impact',
+    font: 'impact',
     coords: {
       x: posX,
       y: posY
