@@ -6,7 +6,6 @@ var gCurrLine;
 var gCurrLineIdx = 0;
 var gSearchfield;
 
-
 function onInit() {
   createImgs();
   gCanvas = document.querySelector('canvas');

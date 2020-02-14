@@ -6,10 +6,10 @@ var gMeme = {
   lines: [{
     txt: 'Enter your text',
     font: 'Impact',
-    size: 50,
+    size: 40,
     align: 'center',
     coords: {
-      x: 200,
+      x: 150,
       y: 50
     },
     color: 'white',
