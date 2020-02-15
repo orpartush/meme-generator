@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memes</title>
+  <link rel="stylesheet" href="css/helpers.css">
+  <link rel="stylesheet" href="css/saved-memes.css">
+</head>
+
+<body onload="onInit()">
+  <section class="header-container flex justify-center align-items">
+    <a href="index.html" class="title">Memegen</a>
+  </section>
+
+  <main class="memes-container flex wrap justify-center"></main>
+
+  <footer class="flex justify-center align-items flex-column">
+    <a href="index.html" class="footer-title">Memegen</a>
+    <p class="crights">all rights reserved 2019</p>
+  </footer>
+
+  <script src="services/utils-service.js"></script>
+  <script src="services/saved-memes-service.js"></script>
+  <script src="controllers/saved-memes-controller.js"></script>
+</body>
+
+</html>

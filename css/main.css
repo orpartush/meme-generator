@@ -138,6 +138,7 @@ canvas {
 
 .control-board-container>a {
   color: #364f6b;
+  padding: 10px;
 }
 
 .control-board-container>a:hover {
@@ -252,34 +253,14 @@ footer>* {
   font-family: russo, sans-serif;
 }
 
+.footer-title {
+  cursor: pointer;
+}
+
 .crights {
   font-size: 1.2rem;
 }
 
-/* Helpers */
-.flex {
-  display: flex;
-}
-
-.justify-start {
-  justify-content: start;
-}
-
-.flex-column {
-  flex-direction: column;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.space-between {
-  justify-content: space-between;
-}
-
-.align-items {
-  align-items: center;
-}
 
 /* Media Query */
 @media only screen and (max-width: 940px) {
@@ -309,12 +290,18 @@ footer>* {
   }
   
   .tags-container>input {
+    margin-block-start: 10px;
     margin-inline-start: 0;
   }
   
   .tags-list {
     justify-content: space-around;
     padding-inline-start: 0;
+  }
+
+  .tags-list>li {
+    padding: 10px;
+    padding-block-end: 25px;
   }
 
   .title {

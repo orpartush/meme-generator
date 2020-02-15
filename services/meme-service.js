@@ -1,5 +1,6 @@
 'use strict';
 
+var gSavedMemesCount = getFromStorage('savedMemesCount') || 0;
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
@@ -31,32 +32,6 @@ var gMeme = {
   ]
 };
 var gImgs = [];
-
-//to set keywords for each image
-// function createImgs() {
-//   gImgs = [
-//     createImg(1, 'img/1.jpg', ['politic', 'funny']),
-//     createImg(2, 'img/2.jpg', ['dogs', 'cute']),
-//     createImg(3, 'img/3.jpg', ['cute', 'funny']),
-//     createImg(4, 'img/4.jpg', ['politic', 'funny']),
-//     createImg(5, 'img/5.jpg', ['politic', 'funny']),
-//     createImg(6, 'img/6.jpg', ['politic', 'funny']),
-//     createImg(7, 'img/7.jpg', ['politic', 'funny']),
-//     createImg(8, 'img/8.jpg', ['politic', 'funny']),
-//     createImg(9, 'img/9.jpg', ['politic', 'funny']),
-//     createImg(10, 'img/10.jpg', ['politic', 'funny']),
-//     createImg(11, 'img/11.jpg', ['politic', 'funny']),
-//     createImg(12, 'img/12.jpg', ['politic', 'funny']),
-//     createImg(13, 'img/13.jpg', ['politic', 'funny']),
-//     createImg(14, 'img/14.jpg', ['politic', 'funny']),
-//     createImg(15, 'img/15.jpg', ['politic', 'funny']),
-//     createImg(16, 'img/16.jpg', ['politic', 'funny']),
-//     createImg(17, 'img/17.jpg', ['politic', 'funny']),
-//     createImg(18, 'img/18.jpg', ['politic', 'funny']),
-//     createImg(19, 'img/19.jpg', ['politic', 'funny']),
-//     createImg(20, 'img/20.jpg', ['politic', 'funny']),
-//   ];
-// }
 
 function createImgs() {
   for (let i = 1; i <= 20; i++) {
@@ -135,4 +110,10 @@ function getCurrLine() {
     lines[gCurrLineIdx].shadowBlur = 3;
     lines[gCurrLineIdx - 1].shadowBlur = 0;
   }
+}
+
+function saveMeme(img) {
+  gSavedMemesCount++;
+  saveToStorage('savedMemesCount', gSavedMemesCount)
+  saveToStorage('meme ' + gSavedMemesCount, img);
 }

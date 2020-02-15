@@ -150,3 +150,8 @@ function onLogoClick() {
   let elGenContainer = document.querySelector('.generator-container');
   elGenContainer.hidden = true;
 }
+
+function onSaveMeme() {
+  let img = gCanvas.toDataURL("image/jpg");
+  saveMeme(img);
+}
