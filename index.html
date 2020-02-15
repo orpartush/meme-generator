@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meme Generator</title>
+  <script src="https://kit.fontawesome.com/c9d31c4229.js" crossorigin="anonymous"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -13,12 +14,16 @@
 </head>
 
 <body onload="onInit()">
+  <div class="screen" onclick="onMenuToggle()"></div>
+
   <nav class="nav-container flex space-between align-items">
-    <header class="title" onclick="onGalleryClick()">Memegen</header>
+    <header class="title" onclick="onLogoClick()">Memegen</header>
     <ul class="nav flex">
       <li><a href="#gallery" onclick="onGalleryClick()">Gallery</a></li>
+      <li><a href="#memes.html" onclick="onMemesClick()">Memes</a></li>
       <li><a href="#about" onclick="onGalleryClick()">About</a></li>
     </ul>
+    <span class="fas fa-bars hamburger-menu" onclick="onMenuToggle()"></span>
   </nav>
 
   <section class="homepage">

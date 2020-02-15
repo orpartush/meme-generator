@@ -36,17 +36,18 @@ function renderImgs() {
 }
 
 function drawText(line) {
-  const { font, strokeColor, color, size, align, txt, coords, shadowBlur } = line;
+  const { 
+    font, strokeColor, color, size, align, txt, coords, shadowBlur 
+  } = line;
+  gCtx.shadowColor = 0;
+  gCtx.shadowOffsetX = 0;
+  gCtx.shadowOffsetY = 0;
+  gCtx.shadowBlur = 0;
   if (shadowBlur) {
     gCtx.shadowColor = 'rgba(255,255, 255, 0.7)';
     gCtx.shadowOffsetX = 3;
     gCtx.shadowOffsetY = 3;
     gCtx.shadowBlur = shadowBlur;
-  } else {
-    gCtx.shadowColor = 0;
-    gCtx.shadowOffsetX = 0;
-    gCtx.shadowOffsetY = 0;
-    gCtx.shadowBlur = 0;
   }
   gCtx.lineWidth = '2';
   gCtx.strokeStyle = strokeColor;
@@ -55,13 +56,6 @@ function drawText(line) {
   gCtx.textAlign = align;
   gCtx.fillText(txt, coords.x, coords.y);
   gCtx.strokeText(txt, coords.x, coords.y);
-}
-
-function onGalleryClick() {
-  let elHomepage = document.querySelector('.homepage');
-  elHomepage.hidden = false;
-  let elGenContainer = document.querySelector('.generator-container');
-  elGenContainer.hidden = true;
 }
 
 function onTxtChange(elTxt) {
@@ -136,4 +130,23 @@ function onFontChange(userFont) {
 function downloadImg(elLink) {
   let img = gCanvas.toDataURL("image/jpg");
   elLink.href = img
+}
+
+function onMenuToggle() {
+  document.body.classList.toggle('menu-open');
+}
+
+function onGalleryClick() {
+  let elHomepage = document.querySelector('.homepage');
+  elHomepage.hidden = false;
+  let elGenContainer = document.querySelector('.generator-container');
+  elGenContainer.hidden = true;
+  if (window.innerWidth < 700) document.body.classList.toggle('menu-open');
+}
+
+function onLogoClick() {
+  let elHomepage = document.querySelector('.homepage');
+  elHomepage.hidden = false;
+  let elGenContainer = document.querySelector('.generator-container');
+  elGenContainer.hidden = true;
 }
