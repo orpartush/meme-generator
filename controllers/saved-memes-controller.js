@@ -8,7 +8,7 @@ function onInit() {
 function renderMemes() {
   let elContainer = document.querySelector('.memes-container');
   if (gSavedMemes.length === 0) {
-      elContainer.innerHTML = `<h1>You didn't saved any memes yet</h1>`;
+      elContainer.innerHTML = `<h1>You didn't save any memes yet</h1>`;
       return;
   }
   gSavedMemes.forEach(meme => {
