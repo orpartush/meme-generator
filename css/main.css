@@ -410,17 +410,21 @@ footer>* {
     transition: .5s;
     border: none;
     border-bottom: 1px solid #f0f0f0;
+    font-size: 2rem;
   }
   
   .nav>li:hover {
     box-shadow: inset -260px 0 0 #43dde6;
     border-bottom: 1px solid #43dde6;
   }
+
+  .nav>li>a {
+    transition: .3s;
+  }
   
   .nav>li>a:hover {
     cursor: pointer;
     color: #364f6b;
-    font-weight: 600;
   }
   
   .menu-open .nav {
