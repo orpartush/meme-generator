@@ -105,6 +105,10 @@ canvas {
   color: #364f6b;
 }
 
+.tag-item:hover {
+  text-decoration: underline;
+}
+
 /* Gallery */
 .gallery-container {
   margin: 20px;
@@ -191,7 +195,7 @@ canvas {
   padding: 20px;
   background-size: 40px;
   border: none;
-
+  /* background-color: rgb(220, 20, 60); */
 }
 
 .change-color-btn:hover {
@@ -431,3 +435,25 @@ footer>* {
     cursor: pointer;
   } 
 }
+
+/* .save-btn {
+  transition: .3s;
+}
+
+/* animate.css */
+/* @keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+
+.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+} */ 

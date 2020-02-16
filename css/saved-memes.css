@@ -30,7 +30,8 @@ a {
 
 .title {
   font-family: russo, sans-serif;
-  font-size: 1.5rem
+  font-size: 1.5rem;
+  margin-inline-start: 20px;
 }
 
 .title:hover {
@@ -45,6 +46,15 @@ img {
   width: 300px;
   height: 300px;
   padding: 20px;
+}
+
+.homepage-link {
+  margin-inline-end: 20px;
+  margin-inline-start: auto;
+}
+
+.homepage-link:hover {
+  text-decoration: underline;
 }
 
 footer {

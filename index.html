@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meme Generator</title>
   <script src="https://kit.fontawesome.com/c9d31c4229.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
@@ -29,12 +30,14 @@
 
   <section class="homepage">
     <section class="tags-container flex space-between align-items">
-      <input type="text" class="tags-search" onkeyup="onSearchfield(this)"placeholder="Enter search keyword">
+      <input type="text" class="tags-search" onkeyup="onSearchfield(this)" placeholder="Enter search keyword">
+      <!-- <button class="search-btn">Search</button> -->
+      <!-- <button class="search-btn" onclick="onSearchfield()">Search</button> -->
       <ul class="tags-list flex">
-        <li><a class="tag-item" href="#">funny</a></li>
-        <li><a class="tag-item" href="#">politic</a></li>
-        <li><a class="tag-item" href="#">dogs</a></li>
-        <li><a class="tag-item" href="#">drinks</a></li>
+        <li><a class="tag-item" href="#" onclick="onSearchfield(this)">funny</a></li>
+        <li><a class="tag-item" href="#" onclick="onSearchfield(this)">politic</a></li>
+        <li><a class="tag-item" href="#" onclick="onSearchfield(this)">dogs</a></li>
+        <li><a class="tag-item" href="#" onclick="onSearchfield(this)">movies</a></li>
       </ul>
     </section>
 
@@ -57,7 +60,14 @@
         <canvas width="300" height="300"></canvas>
       </section>
       <section class="control-board-container">
-        <input class="add-txt" type="text" onkeyup="onTxtChange(this)" onfocus="this.value=''" placeholder="Enter your text here">
+        <input 
+          class="add-txt" 
+          type="text" 
+          onkeyup="onTxtChange(this)" 
+          onfocus="this.value=''" 
+          onblur="this.value=''" 
+          placeholder="Enter your text here"
+        >
         <div class="add-remove-change">
           <button class="line-up-btn" onclick="onMoveLineUp()">
             <img src="icons/arrow-up.png" alt="move up" title="Move up">
@@ -102,7 +112,7 @@
           </div>
         </div>
         <a href="#" onclick="downloadImg(this)" download="my-meme">Download</a>
-        <a href="#" onclick="onSaveMeme()">Save</a>
+        <a href="#" onclick="onSaveMeme(this)">Save</a>
       </section>
     </main>
   </div>
