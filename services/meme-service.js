@@ -53,8 +53,8 @@ function createImgs() {
     createImg(16, 'img/16.jpg', ['movies', 'funny']),
     createImg(17, 'img/17.jpg', ['politic', 'funny']),
     createImg(18, 'img/18.jpg', ['movies', 'funny']),
-    createImg(18, 'img/19.jpg', ['dogs', 'cute']),
-    createImg(18, 'img/20.jpg', ['dogs', 'cute']),
+    createImg(19, 'img/19.jpg', ['dogs', 'cute']),
+    createImg(20, 'img/20.jpg', ['dogs', 'cute']),
   ];
 };
 
