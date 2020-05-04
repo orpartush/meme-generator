@@ -15,9 +15,7 @@
   <link rel="stylesheet" href="css/helpers.css">
 </head>
 
-<body onload="onInit()">
-  <div class="screen" onclick="onMenuToggle()"></div>
-
+<body onload="onInit()" class="flex flex-column space-between">
   <nav class="nav-container flex space-between align-items">
     <header class="title" onclick="onLogoClick()">Memegen</header>
     <ul class="nav flex">
@@ -31,8 +29,6 @@
   <section class="homepage">
     <section class="tags-container flex space-between align-items">
       <input type="text" class="tags-search" onkeyup="onSearchfield(this)" placeholder="Enter search keyword">
-      <!-- <button class="search-btn">Search</button> -->
-      <!-- <button class="search-btn" onclick="onSearchfield()">Search</button> -->
       <ul class="tags-list flex">
         <li><a class="tag-item" href="#" onclick="onSearchfield(this)">funny</a></li>
         <li><a class="tag-item" href="#" onclick="onSearchfield(this)">politic</a></li>
